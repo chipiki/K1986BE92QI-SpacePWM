@@ -28,7 +28,7 @@ int main (void){
 	// Enable used ports
 	init_all_ports();
 
-	// for rotating BLDC motor.
+	// Configure Timer3 for SpacePWM.
 	SpacePWM_Timer3Config();
 
 	// Just for checking MCU clocks in "RST_CLK_Clocks"
@@ -36,7 +36,7 @@ int main (void){
 
 	while(1){
 		for (int i = 0; i < 65535; i++){
-			// Use SpacePWM
+			// Use SpacePWM, rotate vector by i
 			SpacePWM( 25, i++ );
 			// just for delay
 			for(int j=0; j<10; j++);

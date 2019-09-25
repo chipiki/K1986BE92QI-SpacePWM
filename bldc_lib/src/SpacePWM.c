@@ -113,7 +113,7 @@ void SpacePWM_Timer3Config( void )
 	static PORT_InitTypeDef PORT_InitStructure;
 	/* Configure PORTA pin 9 for output PWM */
 	PORT_InitStructure.PORT_OE = PORT_OE_OUT;
-	PORT_InitStructure.PORT_Pin = ( PORT_Pin_1 | PORT_Pin_2 | PORT_Pin_3 );
+	PORT_InitStructure.PORT_Pin = ( PORT_Pin_1 | PORT_Pin_1 | PORT_Pin_2 | PORT_Pin_3 );
 	PORT_InitStructure.PORT_PULL_UP = PORT_PULL_UP_OFF;
 	PORT_InitStructure.PORT_PULL_DOWN = PORT_PULL_DOWN_OFF;
 	PORT_InitStructure.PORT_FUNC = PORT_FUNC_ALTER;
@@ -129,17 +129,6 @@ void SpacePWM_Timer3Config( void )
 	PORT_InitStructure.PORT_MODE = PORT_MODE_DIGITAL;
 	PORT_InitStructure.PORT_SPEED = PORT_SPEED_MAXFAST;
 	PORT_Init(MDR_PORTB, &PORT_InitStructure);
-
-	RST_CLK_PCLKcmd(RST_CLK_PCLK_PORTC, ENABLE );
-	PORT_InitStructure.PORT_OE = PORT_OE_OUT;
-	PORT_InitStructure.PORT_Pin = ( PORT_Pin_2 );
-	PORT_InitStructure.PORT_PULL_UP = PORT_PULL_UP_OFF;
-	PORT_InitStructure.PORT_PULL_DOWN = PORT_PULL_DOWN_OFF;
-	PORT_InitStructure.PORT_FUNC = PORT_FUNC_ALTER;
-	PORT_InitStructure.PORT_MODE = PORT_MODE_DIGITAL;
-	PORT_InitStructure.PORT_SPEED = PORT_SPEED_MAXFAST;
-	PORT_Init(MDR_PORTC, &PORT_InitStructure);
-
 
 	MDR_RST_CLK_TypeDef* rst_clk = MDR_RST_CLK;
 	MDR_TIMER_TypeDef* timer = MDR_TIMER3;
