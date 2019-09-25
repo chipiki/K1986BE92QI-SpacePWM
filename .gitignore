@@ -1,3 +1,7 @@
+# Debug folder
+Debug/
+Release/
+
 # Prerequisites
 *.d
 
